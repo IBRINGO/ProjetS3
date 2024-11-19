@@ -12,14 +12,40 @@ public class UserDaoImpl implements UserDao {
         this.daoFactory = daoFactory;
     }
 
+    
+    @Override
+    public User findUserByEmailAndPassword(String email, String password) throws DAOException {
+        String query = "SELECT * FROM users WHERE email = ? AND password = ?";
+        try (Connection connection = daoFactory.getConnection();
+        	PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+            preparedStatement.setString(1, email);
+            preparedStatement.setString(2, password);
+            try (ResultSet resultSet = preparedStatement.executeQuery()) {
+                if (resultSet.next()) {
+                	 User user = new User();
+                     user.setId(resultSet.getString("id"));
+                     user.setName(resultSet.getString("name"));
+                     user.setFirstName(resultSet.getString("firstname"));
+                     user.setEmail(resultSet.getString("email"));
+                     user.setPassword(resultSet.getString("password"));
+                    return user;
+                }
+            }
+        } catch (SQLException e) {
+            throw new DAOException("Error finding user", e);
+        }
+        return null;
+    }
+    
     @Override
     public void addUser(User user) throws DAOException {
-        String sql = "INSERT INTO users (name, email, password) VALUES (?, ?, ?)";
+        String sql = "INSERT INTO users (name, firstname, email, password) VALUES (?, ?, ?, ?)";
         try (Connection connection = daoFactory.getConnection();
              PreparedStatement statement = connection.prepareStatement(sql)) {
             statement.setString(1, user.getName());
-            statement.setString(2, user.getEmail());
-            statement.setString(3, user.getPassword());
+            statement.setString(2, user.getFirstName());
+            statement.setString(3, user.getEmail());
+            statement.setString(4, user.getPassword());
             statement.executeUpdate();
         } catch (SQLException e) {
             throw new DAOException("Error adding user", e);

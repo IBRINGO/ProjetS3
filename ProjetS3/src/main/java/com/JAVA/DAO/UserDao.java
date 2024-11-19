@@ -8,4 +8,5 @@ public interface UserDao {
     List<User> listUsers() throws DAOException;
     void updateUser(int id, String name, String email, String password) throws DAOException;
     void deleteUser(int id) throws DAOException;
+    public User findUserByEmailAndPassword(String email, String password);
 }
