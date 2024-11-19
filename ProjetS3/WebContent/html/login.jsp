@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <!DOCTYPE html>
@@ -28,9 +28,18 @@
                                             <div class="form-floating mb-3">
                                                 <input class="form-control" id="inputEmail" type="email"  name ="email"  placeholder="name@example.com" />
                                                 <label for="inputEmail">Email address</label>
+                                                <% 
+											            String error = (String) request.getAttribute("error");
+											            if (error != null) {
+											        %>
+											            <span style="color: red;"><%= error %></span>
+											        <% 
+											            }
+											            
+											     %>
                                             </div>
                                             <div class="form-floating mb-3">
-                                                <input class="form-control" id="inputPassword" type="password" name="" placeholder="Password" />
+                                                <input class="form-control" id="inputPassword" type="password" name="password" placeholder="Password" />
                                                 <label for="inputPassword">Password</label>
                                             </div>
                                             <div class="form-check mb-3">
@@ -45,7 +54,7 @@
                                         </form>
                                     </div>
                                     <div class="card-footer text-center py-3">
-                                        <div class="small"><a href="html/register.html">Need an account? Sign up!</a></div>
+                                        <div class="small"><a href="html/register.jsp">Need an account? Sign up!</a></div>
                                     </div>
                                 </div>
                             </div>

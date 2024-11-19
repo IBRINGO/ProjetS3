@@ -45,10 +45,10 @@ public class AuthenServlet extends HttpServlet {
               try {
                   User user = userDao.findUserByEmailAndPassword(email, password);
                   if (user != null) {
-                      response.sendRedirect("welcome.jsp");
+                      request.getRequestDispatcher("html/index.jsp").forward(request, response);
                   } else {
                       request.setAttribute("error", "Invalid username or password.");
-                      request.getRequestDispatcher("index.jsp").forward(request, response);
+                      request.getRequestDispatcher("html/login.jsp").forward(request, response);
                   }
               } catch (DAOException e) {
                   throw new ServletException("Error during sign in", e);
@@ -60,9 +60,11 @@ public class AuthenServlet extends HttpServlet {
              user.setName(request.getParameter("username"));
              user.setEmail(request.getParameter("email"));
              user.setPassword(request.getParameter("password"));
+             
              try {
                  userDao.addUser(user);
-                 response.sendRedirect("index.jsp");
+                 
+                 request.getRequestDispatcher("html/login.jsp").forward(request, response);
              } catch (DAOException e) {
                  throw new ServletException("Error during sign up", e);
              }
@@ -78,6 +80,6 @@ public class AuthenServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+        request.getRequestDispatcher("html/login.jsp").forward(request, response);
 	}
 }
