@@ -15,7 +15,7 @@ public class UserDaoImpl implements UserDao {
     
     @Override
     public User findUserByEmailAndPassword(String email, String password) throws DAOException {
-        String query = "SELECT * FROM users WHERE email = ? AND password = ?";
+        String query = "SELECT * FROM utilisateurs WHERE email = ? AND motDePasse = ?";
         try (Connection connection = daoFactory.getConnection();
         	PreparedStatement preparedStatement = connection.prepareStatement(query)) {
             preparedStatement.setString(1, email);
@@ -23,11 +23,11 @@ public class UserDaoImpl implements UserDao {
             try (ResultSet resultSet = preparedStatement.executeQuery()) {
                 if (resultSet.next()) {
                 	 User user = new User();
-                     user.setId(resultSet.getString("id"));
-                     user.setName(resultSet.getString("name"));
-                     user.setFirstName(resultSet.getString("firstname"));
+                     user.setId(resultSet.getInt("idUtilisateur"));
+                     user.setName(resultSet.getString("nom"));
+                     user.setFirstName(resultSet.getString("prenom"));
                      user.setEmail(resultSet.getString("email"));
-                     user.setPassword(resultSet.getString("password"));
+                     user.setPassword(resultSet.getString("motDePasse"));
                     return user;
                 }
             }
@@ -39,13 +39,14 @@ public class UserDaoImpl implements UserDao {
     
     @Override
     public void addUser(User user) throws DAOException {
-        String sql = "INSERT INTO users (name, firstname, email, password) VALUES (?, ?, ?, ?)";
+        String sql = "INSERT INTO utilisateurs (nom, prenom, email, motDePasse, typeUtilisateur) VALUES (?, ?, ?, ?, ?)";
         try (Connection connection = daoFactory.getConnection();
              PreparedStatement statement = connection.prepareStatement(sql)) {
             statement.setString(1, user.getName());
             statement.setString(2, user.getFirstName());
             statement.setString(3, user.getEmail());
             statement.setString(4, user.getPassword());
+            statement.setString(5, user.getType());
             statement.executeUpdate();
         } catch (SQLException e) {
             throw new DAOException("Error adding user", e);
@@ -54,7 +55,7 @@ public class UserDaoImpl implements UserDao {
 
     @Override
     public void updateUser(int id, String name, String email, String password) throws DAOException {
-        String query = "UPDATE users SET name = ?, email = ?, password = ? WHERE id = ?";
+        String query = "UPDATE utilisateurs SET name = ?, email = ?, password = ? WHERE id = ?";
         try (Connection conn = daoFactory.getConnection();
              PreparedStatement stmt = conn.prepareStatement(query)) {
             stmt.setString(1, name);
@@ -69,7 +70,7 @@ public class UserDaoImpl implements UserDao {
 
     @Override
     public void deleteUser(int id) throws DAOException {
-        String sql = "DELETE FROM users WHERE id = ?";
+        String sql = "DELETE FROM utilisateurs WHERE id = ?";
         try (Connection connection = daoFactory.getConnection();
              PreparedStatement statement = connection.prepareStatement(sql)) {
             statement.setInt(1, id);
@@ -82,13 +83,13 @@ public class UserDaoImpl implements UserDao {
     @Override
     public List<User> listUsers() throws DAOException {
         List<User> users = new ArrayList<>();
-        String sql = "SELECT id, name, firstname, email, password FROM users";
+        String sql = "SELECT id, name, firstname, email, password FROM utilisateurs";
         try (Connection connection = daoFactory.getConnection();
              PreparedStatement statement = connection.prepareStatement(sql);
              ResultSet resultSet = statement.executeQuery()) {
             while (resultSet.next()) {
                 User user = new User();
-                user.setId(resultSet.getString("id"));
+                user.setId(resultSet.getInt("id"));
                 user.setName(resultSet.getString("name"));
                 user.setFirstName(resultSet.getString("firstname"));
                 user.setEmail(resultSet.getString("email"));

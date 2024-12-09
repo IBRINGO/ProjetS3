@@ -1,17 +1,34 @@
 package com.JAVA.BEAN;
 
 public class Competence {
+	private int idCompetence;
     private String nom;
-    private String niveau;
-    private String domaine;
+    private String description;
+    private String niveauRequis;
 
-    public Competence(String nom, String niveau, String domaine) {
-        this.nom = nom;
-        this.niveau = niveau;
-        this.domaine = domaine;
+    // Getters and Setters
+    public int getIdCompetence() {
+        return idCompetence;
     }
-
-    public void ameliorer() {
-        // Améliorer le niveau de la compétence
+    public void setIdCompetence(int idCompetence) {
+        this.idCompetence = idCompetence;
+    }
+    public String getNom() {
+        return nom;
+    }
+    public void setNom(String nom) {
+        this.nom = nom;
+    }
+    public String getDescription() {
+        return description;
+    }
+    public void setDescription(String description) {
+        this.description = description;
+    }
+    public String getNiveauRequis() {
+        return niveauRequis;
+    }
+    public void setNiveauRequis(String niveauRequis) {
+        this.niveauRequis = niveauRequis;
     }
 }

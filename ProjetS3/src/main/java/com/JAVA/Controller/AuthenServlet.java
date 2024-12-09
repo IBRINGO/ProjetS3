@@ -18,18 +18,19 @@ import java.io.IOException;
  */
 @WebServlet("/AuthenServlet")
 public class AuthenServlet extends HttpServlet {
-	private static final long serialVersionUID = 1L;
-       
+    private static final String PAGE_JSP = "/template/index.jsp";
+    private static final String SIGNIN_PAGE = "template/login.jsp";
+    private static final String SIGNUP_PAGE = "template/signup.jsp";
+
     /**
      * @see HttpServlet#HttpServlet()
      */
     
     private UserDao userDao;
-
     @Override
     public void init() {
-    	DAOFactory daoFactory = DAOFactory.getInstance();
-        this.userDao = daoFactory.getUserDao();
+    	 DAOFactory daoFactory = DAOFactory.getInstance();
+    	 this.userDao = daoFactory.getUserDao();
     }
 
     @Override
@@ -45,10 +46,10 @@ public class AuthenServlet extends HttpServlet {
               try {
                   User user = userDao.findUserByEmailAndPassword(email, password);
                   if (user != null) {
-                      request.getRequestDispatcher("html/index.jsp").forward(request, response);
+                      request.getRequestDispatcher("PAGE_JSP").forward(request, response);
                   } else {
                       request.setAttribute("error", "Invalid username or password.");
-                      request.getRequestDispatcher("html/login.jsp").forward(request, response);
+                      request.getRequestDispatcher(SIGNIN_PAGE).forward(request, response);
                   }
               } catch (DAOException e) {
                   throw new ServletException("Error during sign in", e);
@@ -56,15 +57,16 @@ public class AuthenServlet extends HttpServlet {
             //handleSignIn(request, response);
         } else if ("signup".equals(action)) {
         	 User user = new User();
-        	 user.setFirstName( request.getParameter("userfname"));
-             user.setName(request.getParameter("username"));
+        	 user.setFirstName( request.getParameter("fname"));
+             user.setName(request.getParameter("name"));
              user.setEmail(request.getParameter("email"));
              user.setPassword(request.getParameter("password"));
+             user.setType(request.getParameter("type"));
              
              try {
                  userDao.addUser(user);
                  
-                 request.getRequestDispatcher("html/login.jsp").forward(request, response);
+                 this.getServletContext().getRequestDispatcher(PAGE_JSP).forward(request, response);
              } catch (DAOException e) {
                  throw new ServletException("Error during sign up", e);
              }
@@ -80,6 +82,6 @@ public class AuthenServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-        request.getRequestDispatcher("html/login.jsp").forward(request, response);
+        request.getRequestDispatcher(PAGE_JSP).forward(request, response);
 	}
 }

@@ -3,24 +3,70 @@ package com.JAVA.BEAN;
 import java.util.*;
 
 public class Formation {
+	private int idFormation;
     private String titre;
     private String domaine;
-    private String dateDebut;
-    private String dateFin;
-    private List<Competence> competences = new ArrayList<>();
+    private String description;
+    private Date dateDebut;
+    private Date dateFin;
+    private boolean certificatAttribue;
+    private int admin;
+    private List<Competence> competencesAssociees;
 
-    public Formation(String titre, String domaine, String dateDebut, String dateFin) {
+    // Getters and Setters
+    public int getIdFormation() {
+        return idFormation;
+    }
+    public void setIdFormation(int idFormation) {
+        this.idFormation = idFormation;
+    }
+    public String getTitre() {
+        return titre;
+    }
+    public void setTitre(String titre) {
         this.titre = titre;
+    }
+    public String getDomaine() {
+        return domaine;
+    }
+    public void setDomaine(String domaine) {
         this.domaine = domaine;
+    }
+    public String getDescription() {
+        return description;
+    }
+    public void setDescription(String description) {
+        this.description = description;
+    }
+    public Date getDateDebut() {
+        return dateDebut;
+    }
+    public void setDateDebut(Date dateDebut) {
         this.dateDebut = dateDebut;
+    }
+    public Date getDateFin() {
+        return dateFin;
+    }
+    public void setDateFin(Date dateFin) {
         this.dateFin = dateFin;
     }
-
-    public void ajouterCompetence(Competence competence) {
-        competences.add(competence);
+    public boolean isCertificatAttribue() {
+        return certificatAttribue;
     }
-
-    public void supprimerCompetence(Competence competence) {
-        competences.remove(competence);
+    public void setCertificatAttribue(boolean certificatAttribue) {
+        this.certificatAttribue = certificatAttribue;
+    }
+    public int getAdmin() {
+        return admin;
+    }
+    public void setAdmin(int admin) {
+        this.admin = admin;
+    }
+    public List<Competence> getCompetencesAssociees() {
+        return competencesAssociees;
+    }
+    public void setCompetencesAssociees(List<Competence> competencesAssociees) {
+        this.competencesAssociees = competencesAssociees;
     }
 }
+

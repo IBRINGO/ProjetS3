@@ -66,4 +66,20 @@ public class DAOFactory {
     public UserDao getUserDao() {
         return new UserDaoImpl(this);
     }
+    
+    public CandidatDao getCandidatDao() {
+    	return new CandidatDaoImpl(this);
+    }
+    
+    public CandidatureDao getCandidatureDao() {
+    	return new CandidatureDaoImpl(this);
+    }
+    
+    public CompetenceDao getCompetenceDao() {
+    	return new CompetenceDaoImpl(this);
+    }
+    
+    public FormationDao getFormationDao() {
+    	return new FormationDaoImpl(this);
+    }
 }

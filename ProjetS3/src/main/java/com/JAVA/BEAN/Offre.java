@@ -3,34 +3,62 @@ package com.JAVA.BEAN;
 import java.util.*;
 
 public class Offre {
+	private int idOffre;
     private String titre;
     private String description;
-    private String datePublication;
-    private String dateLimite;
-    private List<Competence> competencesRequises = new ArrayList<>();
-    private String entreprise;
+    private List<Competence> competencesRequises;
+    private Date datePublication;
+    private Date dateLimite;
+    private int recruteur;
+    private List<Candidature> candidaturesRecues;
 
-    public Offre(String titre, String description, String datePublication, String dateLimite, String entreprise) {
+    // Getters and Setters
+    public int getIdOffre() {
+        return idOffre;
+    }
+    public void setIdOffre(int idOffre) {
+        this.idOffre = idOffre;
+    }
+    public String getTitre() {
+        return titre;
+    }
+    public void setTitre(String titre) {
         this.titre = titre;
+    }
+    public String getDescription() {
+        return description;
+    }
+    public void setDescription(String description) {
         this.description = description;
+    }
+    public List<Competence> getCompetencesRequises() {
+        return competencesRequises;
+    }
+    public void setCompetencesRequises(List<Competence> competencesRequises) {
+        this.competencesRequises = competencesRequises;
+    }
+    public Date getDatePublication() {
+        return datePublication;
+    }
+    public void setDatePublication(Date datePublication) {
         this.datePublication = datePublication;
+    }
+    public Date getDateLimite() {
+        return dateLimite;
+    }
+    public void setDateLimite(Date dateLimite) {
         this.dateLimite = dateLimite;
-        this.entreprise = entreprise;
     }
-
-    public void consulter() {
-        // Afficher les détails de l'offre
+    public int getRecruteur() {
+        return recruteur;
     }
-
-    public void supprimer() {
-        // Supprimer l'offre
+    public void setRecruteur(int recruteur) {
+        this.recruteur = recruteur;
     }
-
-    public void ajouter() {
-        // Ajouter une nouvelle offre
+    public List<Candidature> getCandidaturesRecues() {
+        return candidaturesRecues;
     }
-
-    public void modifier() {
-        // Modifier les détails de l'offre
+    public void setCandidaturesRecues(List<Candidature> candidaturesRecues) {
+        this.candidaturesRecues = candidaturesRecues;
     }
 }

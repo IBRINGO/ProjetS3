@@ -3,18 +3,56 @@ package com.JAVA.BEAN;
 import java.util.*;
 
 public class Recruteur extends User {
+	
+    private String entreprise;
+    private String telephone;
+    private String siteWeb;
+    private String adresse;
     private List<Offre> offrePubliees = new ArrayList<>();
 
-    public Recruteur(String nom, String prenom, String email, String password) {
-        super(nom, prenom, email, password);
+ // Getters and Setters
+    public String getEntreprise() {
+        return entreprise;
+    }
+    public void setEntreprise(String entreprise) {
+        this.entreprise = entreprise;
+    }
+    
+    public String getAdresse() {
+        return adresse;
     }
 
+    public void setAdresse(String adresse) {
+        this.adresse = adresse;
+    }
+
+    public String getTelephone() {
+        return telephone;
+    }
+
+    public void setTelephone(String telephone) {
+        this.telephone = telephone;
+    }
+    
+    public String getSiteWeb() {
+        return siteWeb;
+    }
+
+    public void setSiteWeb(String siteWeb) {
+        this.siteWeb = siteWeb;
+    }
+    
+    public List<Offre> getOffresPubliees() {
+        return this.offrePubliees;
+    }
+    public void setOffresPubliees(List<Offre> offresPubliees) {
+        this.offrePubliees = offresPubliees;
+    }
     public void publierOffre(Offre offre) {
         offrePubliees.add(offre);
     }
 
     public void modifierOffre(Offre offre) {
-        // Modifier l'offre
     }
 
     public void supprimerOffre(Offre offre) {

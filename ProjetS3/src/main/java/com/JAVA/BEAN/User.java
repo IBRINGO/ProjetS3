@@ -1,11 +1,12 @@
 package com.JAVA.BEAN;
 
 public class User {
-	public String id;
+	public int id;
 	public String name;
 	public String firstName;
 	public String email;
 	private String password;
+	private String type;
 	
 	public User(String name, String fname, String email, String passwd) {
 		this.name = name;
@@ -18,12 +19,12 @@ public class User {
 	}
 	
     // Setter pour l'id
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 	
-    public String getId() {
-		return this.id = id;
+    public int getId() {
+		return this.id;
 	}
 
     
@@ -70,6 +71,12 @@ public class User {
 	public String getPassword() {
         return this.password;
     }
-
+	
+	public String getType() {
+        return type;
+    }
+    public void setType(String type) {
+        this.type = type;
+    }
 
 }

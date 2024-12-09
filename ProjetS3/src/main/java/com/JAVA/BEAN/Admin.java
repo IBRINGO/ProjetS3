@@ -1,17 +1,24 @@
 package com.JAVA.BEAN;
 
+import java.util.List;
 
 public class Admin extends User {
 	
-	 public Admin(String nom, String prenom, String email, String password) {
-	        super(nom, prenom, email, password);
-	    }
+	private List<Formation> formationsProposees;
+    private String statistiquesPlateforme;
 
-	    public void gererUtilisateur() {
-	        // Implémentation de la gestion des utilisateurs
-	    }
-
-	    public void gererFormation() {
-	       }
+    // Getters and Setters
+    public List<Formation> getFormationsProposees() {
+        return formationsProposees;
+    }
+    public void setFormationsProposees(List<Formation> formationsProposees) {
+        this.formationsProposees = formationsProposees;
+    }
+    public String getStatistiquesPlateforme() {
+        return statistiquesPlateforme;
+    }
+    public void setStatistiquesPlateforme(String statistiquesPlateforme) {
+        this.statistiquesPlateforme = statistiquesPlateforme;
+    }
 
 }
