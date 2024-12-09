@@ -1,0 +1,135 @@
+/* General Body Styles */
+body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    background-color: #f7f9fc; /* Soft light gray */
+    color: #2c3e50; /* Dark slate gray */
+}
+
+/* Navbar */
+.navbar {
+    background: linear-gradient(to right, #ffffff, #fff6e8); /* Soft white gradient */
+    padding: 0.75rem 2rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-brand {
+    font-size: 1.5rem;
+    color: #2c3e50;
+}
+
+.nav-link {
+    font-size: 1rem;
+    color: #7f8c8d; /* Medium gray */
+    transition: color 0.3s ease; /* Smooth hover effect */
+}
+
+.nav-link:hover {
+    color: #2c3e50; /* Dark slate gray hover effect */
+}
+
+.signup-btn {
+    border-radius: 3px;
+    background-color: #f4a261; /* Warm orange */
+    color: #ffffff;
+    border: none;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.signup-btn:hover {
+    background-color: #e68a4f; /* Deeper warm orange */
+    color: #ffffff;
+}
+
+/* Hero Section */
+.hero-section {
+    background: linear-gradient(to right, #fffaee, #f9efd7); /* Warm gradient */
+    height: 70vh;
+    padding: 20px;
+}
+
+.hero-section h1 {
+    font-size: 2.5rem;
+    color: #2c3e50; /* Dark slate gray */
+}
+
+.hero-section p {
+    color: #7f8c8d; /* Medium gray */
+}
+
+.hero-section img {
+    max-height: 400px;
+    object-fit: contain;
+    width: 100%;
+    border-radius: 10px;
+}
+
+.hero-section .btn {
+    font-size: 1.2rem;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.trainee-btn {
+    background-color: #6dbf59; /* Fresh green */
+    color: #ffffff;
+}
+
+.trainee-btn:hover {
+    background-color: #57a94c; /* Darker fresh green */
+    transform: translateY(-3px); /* Slight lift on hover */
+}
+
+.recruiter-btn {
+    background-color: #5d9cec; /* Cool blue */
+    color: #ffffff;
+}
+
+.recruiter-btn:hover {
+    background-color: #4b87d9; /* Darker cool blue */
+    transform: translateY(-3px);
+}
+
+/* Features Section */
+.features {
+    background: linear-gradient(to right, #fef6e4, #fcead2); /* Warm, inviting gradient */
+    padding: 2rem;
+    text-align: center;
+}
+
+.features img {
+    width: 300px;
+    height: auto;
+    margin-bottom: 1rem;
+    border-radius:3%;
+}
+
+.features h5 {
+    font-size: 1.25rem;
+    color: #2c3e50; /* Dark slate gray */
+    margin-top: 1rem;
+}
+
+.features p {
+    color: #7f8c8d; /* Medium gray */
+}
+
+/* Footer */
+footer {
+    background: linear-gradient(to right, #f9e3c8, #f7d5b1); /* Soft pastel gradient */
+    color: #5e5e5e; /* Medium gray */
+    border-top: 1px solid #e0e0e0; /* Light gray border */
+    padding: 1rem;
+    text-align: center;
+}
+
+footer a {
+    color: #2c3e50; /* Dark slate gray */
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+footer a:hover {
+    color: #f4a261; /* Warm orange */
+}

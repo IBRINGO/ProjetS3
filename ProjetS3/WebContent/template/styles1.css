@@ -1,0 +1,148 @@
+/* General Body Styles */
+body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    background-color: #f7f9fc; /* Light gray background */
+}
+
+/* Main Container (Flex Layout) */
+.login-container {
+    display: flex;
+    height: 100vh;
+}
+
+/* Left Side (Testimonial + Image) */
+.left-side {
+    background-image: url('left-side\ \(2\).jpg'); /* Image URL here */
+    background-size: cover;
+    background-position: 90% 0;
+    color: #fff;
+    width: 50%;
+    padding: 50px;
+    text-align: center;
+}
+
+.testimonial {
+    position: relative;
+    top:-45%;
+    padding: 1.5rem; /* Adjust spacing around the text */
+    text-align: center;
+    background-color: #f9f9f900; /* Light background for contrast */
+    border-radius: 10px;
+    color: #000; /* Ensure the text is black */
+    margin-top: 1rem; /* Add some spacing above the div */
+}
+
+.testimonial-text {
+    margin: 0 0 1rem 0; /* Add spacing between the text and the author */
+    font-size: 1.2rem; /* Adjust size for readability */
+    font-weight: 500; /* Slightly bold for emphasis */
+}
+
+.testimonial-author {
+    margin: 0; /* Remove margin for consistency */
+    font-size: 1rem; /* Slightly smaller font for the author */
+    font-style: italic; /* Italicize the author for distinction */
+    color: #000; /* Use a softer black for the author */
+}
+
+
+/* Right Side (Login Form) */
+/* Right Side Container */
+.right-side {
+    background-color: #fff8e7; /* Subtle yellow to echo the left side */
+    height: 100vh; /* Full viewport height */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    width:50%;
+}
+
+/* Login Form Container */
+.login-form {
+    background-color: #ffffff; /* Clean white background for contrast */
+    border-radius: 10px; /* Rounded corners for a modern look */
+    padding: 2rem; /* Inner spacing for breathing room */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+    max-width: 400px; /* Restrict form width */
+    width: 100%; /* Responsive width */
+}
+
+/* Form Heading */
+.login-form h1 {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #2c3e50; /* Dark slate gray for readability */
+    margin-bottom: 1.5rem;
+}
+
+/* Form Labels */
+.login-form .form-label {
+    font-size: 0.9rem;
+    color: #555; /* Medium gray for labels */
+}
+
+/* Input Fields */
+.login-form .form-control {
+    border: 1px solid #ddd; /* Light gray border */
+    border-radius: 5px;
+    padding: 0.75rem;
+    font-size: 1rem;
+}
+
+/* Input Focus State */
+.login-form .form-control:focus {
+    border-color: #f4a261; /* Accent color on focus */
+    box-shadow: 0 0 5px rgba(244, 162, 97, 0.5); /* Soft glow */
+}
+
+/* Primary Button */
+.login-form .btn-primary {
+    background-color: #f4a261; /* Vibrant accent color */
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    padding: 0.75rem;
+    transition: background-color 0.3s ease;
+}
+
+.login-form .btn-primary:hover {
+    background-color: #e68a4f; /* Slightly deeper shade on hover */
+}
+
+/* Links */
+.login-form a {
+    color: #f4a261; /* Accent color for links */
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.login-form a:hover {
+    color: #e68a4f; /* Darker accent on hover */
+}
+
+/* Additional Spacing for Text Below Form */
+.login-form .mt-3, .login-form .mt-4 {
+    margin-top: 1rem !important;
+}
+
+
+
+
+
+
+/* Footer */
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .login-container {
+        flex-direction: column; /* Stack elements vertically on small screens */
+    }
+
+    .left-side, .right-side {
+        width: 100%; /* Full width for each side on mobile */
+    }
+}
